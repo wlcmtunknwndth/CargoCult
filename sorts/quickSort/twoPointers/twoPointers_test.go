@@ -25,7 +25,7 @@ var testCases = []struct {
 
 func TestTwoPointers(t *testing.T) {
 	for _, tc := range testCases {
-		var tmp []int
+		var tmp = make([]int, len(tc.given))
 		copy(tmp, tc.given)
 		QuickSortStart(tmp, func(i1 int, i2 int) int {
 			if i1 > i2 {
@@ -37,7 +37,6 @@ func TestTwoPointers(t *testing.T) {
 			}
 		})
 
-		assert.
-
+		assert.Equal(t, tmp, tc.expected)
 	}
 }
